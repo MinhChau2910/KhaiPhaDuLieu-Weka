@@ -5,6 +5,8 @@
  */
 package wekapro;
 
+import weka.classifiers.trees.J48;
+
 /**
  *
  * @author FPT
@@ -34,12 +36,23 @@ public class WekaPro {
         //model.mineAssociationRules();
         //System.out.println(model);
         
-        MyKnowledgeModel model = new MyKnowledgeModel( "C:\\Program Files\\Weka-3-9\\data\\iris.arff",null,null);
-        model.trainset = model.divideTrainTestR(model.dataset,80,false);
-        model.testset = model.divideTrainTestR(model.dataset,80,true);
+       // MyKnowledgeModel model = new MyKnowledgeModel( "C:\\Program Files\\Weka-3-9\\data\\iris.arff",null,null);
+        //model.trainset = model.divideTrainTestR(model.dataset,80,false);
+        //model.testset = model.divideTrainTestR(model.dataset,80,true);
+        //System.out.println(model);
+        //System.out.println(model.trainset.toSummaryString());
+        //System.out.println(model.testset.toSummaryString());
+        
+        
+        MyDecisionTreeModel model = new MyDecisionTreeModel(
+                "C:\\Users\\FPT\\Desktop\\data\\iris.arff"
+                ,"-C 0.25 -M 2",null);
+        model.buildDecisionTree();
+        model.evaluateDecicsonTree();
         System.out.println(model);
-        System.out.println(model.trainset.toSummaryString());
-        System.out.println(model.testset.toSummaryString());
+        model.saveModel("C:\\Users\\FPT\\Desktop\\models\\decision-tree", model.tree);
+        model.tree =(J48)model.loadModel("C:\\Users\\FPT\\Desktop\\models\\decsiontree.model");
+        model.predictClassLabel(model.testset); 
     }
     
 }
