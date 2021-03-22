@@ -44,15 +44,32 @@ public class WekaPro {
         //System.out.println(model.testset.toSummaryString());
         
         
-        MyDecisionTreeModel model = new MyDecisionTreeModel(
-                "C:\\Users\\FPT\\Desktop\\data\\iris.arff"
-                ,"-C 0.25 -M 2",null);
-        model.buildDecisionTree();
-        model.evaluateDecicsonTree();
+        //MyDecisionTreeModel model = new MyDecisionTreeModel(
+           //     "C:\\Users\\FPT\\Desktop\\data\\iris.arff"
+           //     ,"-C 0.25 -M 2",null);
+       // model.buildDecisionTree();
+       // model.evaluateDecicsonTree();
+       // System.out.println(model);
+       //// model.saveModel("C:\\Users\\FPT\\Desktop\\models\\decision-tree", model.tree);
+       // model.tree =(J48)model.loadModel("C:\\Users\\FPT\\Desktop\\models\\decsiontree.model");
+       // model.predictClassLabel(model.testset); 
+       
+       
+        //MyNaiveBayesModel model = new MyNaiveBayesModel();
+        //model.buildNaiveBayes("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+        //model.evaluateNaivebayes("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+        //model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff",
+          //                          "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-nb.arff");
+        //System.out.println(model);
+        
+        MyNeuralNetworkModel model = new MyNeuralNetworkModel("",
+                                "-L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a -R",
+                                null);
+        model.buildNeuralNetwork("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+        model.evaluateNeuralNetwork("C:\\\\Users\\\\FPT\\Desktop\\chude5\\iris-test.arff");
+        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff",
+                                    "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-ann.arff");
         System.out.println(model);
-        model.saveModel("C:\\Users\\FPT\\Desktop\\models\\decision-tree", model.tree);
-        model.tree =(J48)model.loadModel("C:\\Users\\FPT\\Desktop\\models\\decsiontree.model");
-        model.predictClassLabel(model.testset); 
     }
     
 }

@@ -39,13 +39,15 @@ class MyKnowledgeModel {
    public MyKnowledgeModel(String filename,
             String m_opts , 
             String d_opts ) throws Exception {
-        this.source = new DataSource(filename);
-        this.dataset = source.getDataSet();
-        if (m_opts != null){
-            this.model_options = weka.core.Utils.splitOptions(m_opts);
+        if(!filename.isEmpty()){
+        source = new DataSource(filename);
+        dataset = source.getDataSet();
+        }
+        if(m_opts != null){
+            model_options = weka.core.Utils.splitOptions(m_opts);
         }
         if(d_opts != null){
-            this.model_options = weka.core.Utils.splitOptions(d_opts);
+            data_options = weka.core.Utils.splitOptions(d_opts);
         }
    }
   
@@ -116,6 +118,18 @@ class MyKnowledgeModel {
         return weka.core.SerializationHelper.read(filename);
     }
   
+     
+     
+     public void setTrainset(String filename) throws Exception {
+    DataSource trainSource = new DataSource(filename);
+    this.trainset = trainSource.getDataSet();
+    }
+    
+    public void setTestset(String filename) throws Exception{
+    DataSource testSource = new DataSource(filename);
+    this.testset = testSource.getDataSet();
+    }
+
   @Override
     public String toString() {
         return dataset.toSummaryString();
