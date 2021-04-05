@@ -59,16 +59,25 @@ public class WekaPro {
         //model.buildNaiveBayes("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
         //model.evaluateNaivebayes("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
         //model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff",
-          //                          "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-nb.arff");
+        //                          "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-nb.arff");
         //System.out.println(model);
         
-        MyNeuralNetworkModel model = new MyNeuralNetworkModel("",
-                                "-L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a -R",
-                                null);
-        model.buildNeuralNetwork("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
-        model.evaluateNeuralNetwork("C:\\\\Users\\\\FPT\\Desktop\\chude5\\iris-test.arff");
-        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff",
-                                    "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-ann.arff");
+        //MyNeuralNetworkModel model = new MyNeuralNetworkModel("",
+        //                        "-L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a -R",
+        //                        null);
+        //model.buildNeuralNetwork("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+        //model.evaluateNeuralNetwork("C:\\\\Users\\\\FPT\\Desktop\\chude5\\iris-test.arff");
+        //model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff",
+          //                          "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-ann.arff");
+        //System.out.println(model);
+        
+        MySVMModel model = new MySVMModel("",
+                "-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"wek a.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\""
+                        ,null);
+        model.buildSVM("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+        model.evaluateSVM("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
+               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-svm.arff");
         System.out.println(model);
     }
     
