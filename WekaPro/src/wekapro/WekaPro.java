@@ -71,14 +71,66 @@ public class WekaPro {
           //                          "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-ann.arff");
         //System.out.println(model);
         
-        MySVMModel model = new MySVMModel("",
-                "-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"wek a.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\""
+        //MySVMModel model = new MySVMModel("",
+          //      "-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"wek a.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\""
+                       // ,null);
+        //model.buildSVM("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+        //model.evaluateSVM("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+        //model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
+          //     "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-svm.arff");
+        //System.out.println(model);
+        
+//        MyKNNModel model = new MyKNNModel("",
+//                "-K 5 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \\\"weka.core.EuclideanDistance -R first-last\\\""
+//                        ,null);
+//        model.buildKNN("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+//        model.evaluateKNN("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+//        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
+//               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict_knn.arff");
+//        System.out.println(model);
+
+
+
+        // phuong phap baging
+//        MyBaggingModel model = new MyBaggingModel("",null
+//                        ,null);
+//        model.buildMyBaggingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+//        model.evaluateBaggingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+//        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
+//               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-bag.arff");
+//        System.out.println("Finished");
+        
+
+
+        //phuong pháp boosting
+//        MyBoostingModel model = new MyBoostingModel("",null
+//                        ,null);
+//        model.buildMyBoostingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+//        model.evaluateBoostingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+//        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
+//               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-boost.arff");
+//        System.out.println("Finished");
+        
+        
+//        //phuong phap voting
+//        
+//        MyVotingModel model = new MyVotingModel("",null
+//                        ,null);
+//        model.buildMyVotingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+//        model.evaluateVotingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+//        model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
+//               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-vote .arff");
+//        System.out.println("Finished");
+        
+        //phuongphap stacking
+        
+        MyBlendingModel model = new MyBlendingModel("",null
                         ,null);
-        model.buildSVM("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
-        model.evaluateSVM("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
+        model.buildMyBlendingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-train.arff");
+        model.evaluateBlendingModel("C:\\Users\\FPT\\Desktop\\chude5\\iris-test.arff");
         model.predictClassLabel("C:\\Users\\FPT\\Desktop\\chude5\\iris-unlabel.arff", 
-               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-svm.arff");
-        System.out.println(model);
+               "C:\\Users\\FPT\\Desktop\\chude5\\iris-predict-blending.arff");
+        System.out.println("Finished");
     }
     
 }
